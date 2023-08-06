@@ -1,0 +1,106 @@
+{% load static %}
+{% load filters %}
+<!DOCTYPE html>
+<html  >
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image:src" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:title" content="Page 4">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/offer-discount-sales-shop-e-icon-227991-128x128.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Смена типа товара</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/popup-overlay-plugin/style.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/recaptcha.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
+  
+</head>
+<body>
+  
+  {% include 'menu.html' %}
+
+<section data-bs-version="5.1" class="image1 cid-tE85I2SnGB" id="image1-c">
+    
+
+    
+    
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-5">
+                <div class="image-wrapper">
+                    {% if obj.datas.pic and obj.datas.pic != 'Н.Д.' %}
+                    <img src="/images/{{obj.datas.pic}}">
+                    {% else %}
+                    <img src="/images/prod.png">
+                                    {% endif %}
+                    
+                </div>
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>{{obj.name}}</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7">{{datass}}<br><br>
+                        <a href="unknows/{{ obj.id }}/del"><strong>УДАЛИТЬ?</strong></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="form cid-tGbxUU7dw5" id="formbuilder-1c">
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+<!--Formbuilder Form-->
+<form action="/unknows/{{ obj.id }}/" method="POST" class="mbr-form form-with-styler">
+    {% csrf_token %}
+<div class="dragArea row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<h4 class="mbr-fonts-style display-5">Установите новый тип продукта</h4>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12">
+<hr>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="select">
+<label for="select-formbuilder-1c" class="form-control-label mbr-fonts-style display-7">Типы</label>
+<select name="select" data-form-field="select" class="form-control form-select display-7" id="select-formbuilder-1c">
+    {% for m in models %}
+<option value="{{m}}">{{m}}</option>
+    {% endfor %}
+</select>
+</div>
+<div class="col"><button type="submit" class="w-100 btn btn-warning display-7">Изменить</button></div>
+</div>
+</form><!--Formbuilder Form-->
+</div>
+        </div>
+    </div>
+</section><section><a href="https://mobiri.se"></a><a href="https://mobiri.se"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid.min.js"></script>  
+  
+  
+</body>
+</html>

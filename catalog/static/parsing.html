@@ -1,0 +1,146 @@
+{% load filters %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image:src" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:title" content="do pars">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/offer-discount-sales-shop-e-icon-227991-128x128.png"
+          type="image/x-icon">
+    <meta name="description" content="">
+
+
+    <title>Парсинг сайтов</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/popup-overlay-plugin/style.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
+    </noscript>
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap">
+    </noscript>
+    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+
+</head>
+<body>
+
+{% include 'menu.html' %}
+
+<section class="form cid-tC0ocPm3e2" id="formbuilder-4">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form">
+                <!--Formbuilder Form-->
+                <form method="POST" class="mbr-form form-with-styler" data-verified="">
+                    {% csrf_token %}
+                    <div class="form-row">
+
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
+                            problem!
+                        </div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h4 class="mbr-fonts-style display-5">Парсинг сайтов</h4>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <hr>
+                        </div>
+                        <p>Выберите либо тип продукта(обязательно нажмите на тип) или напишите что именно ищите</p>
+                        <div data-for="sites" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <textarea name="sites" placeholder="Вставьте сайты через пробел" data-form-field="sites"
+                                      required="required" class="form-control display-7"
+                                      id="sites-formbuilder-4">invask.ru muztorg.ru ltm-music.ru</textarea>
+                        </div>
+                        <div data-for="product" class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <textarea name="product" placeholder="Перечислите товары через восклицательный знак !"
+                                      data-form-field="product" class="form-control display-7"
+                                      id="product-formbuilder-4"></textarea>
+                        </div>
+                        {% for k, v in rows.items %}
+                        <div data-for="radio" class="col-lg-12 col-md-12 col-sm-12 form-group">
+
+
+                            {% if k != 'all' %}
+                            <div class="form-control-label">
+                                <label for="radio-formbuilder-4" class="mbr-fonts-style display-7">Тип товара</label>
+                            </div>
+                            <div class="form-check ms-2" id="radio-formbuilder-4">
+                                <input type="radio" name="тип товара" value="{{ k }}" id="radiooo_{{ k }}"
+                                       class="form-check-input display-7">
+                                <label class="form-check-label display-7" for="radiooo_{{ k }}">{{ k }}</label>
+                            </div>
+
+                            {% else %}
+                            <div class="form-control-label">
+                                <label class="mbr-fonts-style display-7"></label>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        {% for el in v %}
+                        {% if el|get_type == 'str' %}
+                        <div data-for="text" class="col-lg-12 col-md-12 col-sm-12 form-group" id="text-formbuilder-4">
+                            <label class="form-control-label mbr-fonts-style display-7" for="{{ el }}">{{ el }}</label>
+                            <input type="text" name="{{ el }}" placeholder="Text" data-form-field="text"
+                                   class="form-control display-7" value="" id="{{ el }}" >
+                        </div>
+                        {% elif el|get_type == 'dict' %}
+                        {% for q, f in el.items %}
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="select" id="select-formbuilder-4">
+                            <label class="form-control-label mbr-fonts-style display-7" for="select_{{ q }}">{{ q}}</label>
+                            <select data-form-field="select" class="form-control form-select display-7" name="{{ q }}" id="select_{{ q }}">
+                                <option value="True">True</option>
+                                <option selected value="False">False</option>
+                            </select>
+                        </div>
+                        {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <div class="col" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 999; width: 65%;">
+                            <button type="submit" class="w-100 w-100 w-100 w-100 w-100 w-100 btn btn-warning display-7">
+                                Найти и скачать
+                            </button>
+                        </div>
+                    </div>
+                </form><!--Formbuilder Form-->
+            </div>
+        </div>
+    </div>
+</section>
+<section><a href="https://mobiri.se"></a><a href="https://mobiri.se"></a></section>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/smoothscroll/smooth-scroll.js"></script>
+<script src="assets/ytplayer/index.js"></script>
+<script src="assets/dropdown/js/navbar-dropdown.js"></script>
+<script src="assets/theme/js/script.js"></script>
+
+
+</body>
+</html>

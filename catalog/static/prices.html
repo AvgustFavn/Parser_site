@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html  >
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image:src" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:title" content="Парсинг прайсов">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/offer-discount-sales-shop-e-icon-227991-128x128.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Парсинг прайсов</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/popup-overlay-plugin/style.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/recaptcha.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
+  
+</head>
+<body>
+  
+  {% include 'menu.html' %}
+
+<section class="form cid-tJE42G4EZ3" id="formbuilder-1v">
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+<!--Formbuilder Form-->
+<form action="/load/" enctype="multipart/form-data" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="oa5eVoBeLVdxqSZxxe7Ocln6dxHR9jum9Uwb3yYgl9Qda9NBKIVmoYu1h78kYLbbGzprLE8vqfEL1zcP6dtZzI3XkVgsH6CR6UKOP5W/KmcVSQQQBH7MCYzai8IWRJN/.mYCKCt7VjmgFDMuhMqK+5MjOLMj1dND52EmuemLk3gJCG8VzwiPkyVBD2dmj/nGbXSbs5mdzWxJUKm5CzXzjTrltlCGsHKdaW7nZERVP88PceT+CTI2HhSrbc16k3V/Q">
+{% csrf_token %}
+<div class="dragArea row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<h4 class="mbr-fonts-style display-5">Парсинг прайсов</h4>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12">
+<hr>
+</div>
+<div data-for="name" class="col-lg-12 col-md-12 col-sm-12 form-group">
+<label for="name-formbuilder-1v" class="form-control-label mbr-fonts-style display-7">Файл</label>
+<input type="file" name="file_1" placeholder="Name" data-form-field="name" class="form-control display-7" value="" id="name-formbuilder-1v">
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="radio">
+<div class="form-control-label">
+<label for="radio-formbuilder-1v" class="mbr-fonts-style display-7">Производитель</label>
+</div>
+    {% for p in all %}
+<div class="form-check ms-2">
+<input type="radio" name="prov_{{p.name}}" data-form-field="radio" class="form-check-input display-7" value="{{p.id}}" id="radio-formbuilder-1v">
+<label class="form-check-label display-7">{{p.name}}</label>
+</div>
+    {% endfor %}
+</div>
+<div class="col"><button type="submit" class="w-100 btn btn-info display-7">Пропарсить</button></div>
+</div>
+</form><!--Formbuilder Form-->
+</div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content15 cid-tJE58gFl0K" id="content15-1x">
+
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card col-md-12 col-lg-6">
+                <div class="card-wrapper">
+                    <div class="card-box align-left">
+                        <h4 class="card-title mbr-fonts-style mbr-white mb-3 display-5"><strong>Нет нужного производителя?</strong></h4>
+                        <p class="mbr-text mbr-fonts-style display-7">Если нет нужного производителя или файл парсится не правильно, можете изменить или добавить колонки тут</p>
+                        <div class="mbr-section-btn mt-3"><a class="btn btn-white display-4" href="/providers">Настройки парсера</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section><a href="https://mobiri.se"></a><a href="https://mobiri.se"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid.min.js"></script>  
+  
+  
+</body>
+</html>

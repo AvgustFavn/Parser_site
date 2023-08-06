@@ -1,0 +1,83 @@
+{% load filters %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h4>Парсинг сайтов</h4>
+<form action="/parsing/" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="email" data-form-email="true"
+           value="M+RQtseefxtmf16fhRUESPKJldQjlL6d2POqbfZVyYPg7LjyR2HSMMIPJ99qx3wrPCDvvLpA2qX2oefKowouPJfKSYsUXjrf4V6lHR3ujv4dg89rgINXL+UYemJZnPr5.j2E4egrA2q6u7WNuN3vdpeFg6lcO/viIkuomvqCCJOIa3I2M8lAnffN/ozrwaOdVsfxYMa8wj0EM7InYSbkendv25m6r2IkSkqVd0yBofn1+0RUsQXTWqgkJdRYbANHC">
+
+    <p>Выберите либо тип продукта(обязательно нажмите на тип) или напишите что именно ищите</p>
+    <div>
+        <textarea name="sites" placeholder="Вставьте сайты через пробел" required="required">invask.ru muztorg.ru ltm-music.ru citilink.ru</textarea>
+    </div>
+    <div>
+        <textarea name="product" placeholder="Перечислите товары через восклицательный знак !"></textarea>
+    </div>
+    <div>
+        <div>
+            <h4>Тип товара</h4>
+        </div>
+        {% for k, v in rows.items %}
+        <div class="form-check ms-2">
+            {% if k != 'all' %}
+            <input class="btn" type="radio" name="тип товара" value="{{ k }}" id="radiooo_{{ k }}" data-form-field="radio" class="form-check-input display-7" id="radio-formbuilder-4" onclick="toggleBlock({{ k }})">
+            <label class="form-check-label display-7" for="radiooo_{{ k }}">{{ k }}</label>
+            {% endif %}
+        </div>
+        <div class="content hidden" id="none_dude_{{ k }}">
+            {% for el in v %}
+            {% if el|get_type == 'str' %}
+            <label for="{{ el }}">{{ el }}</label>
+            <input type="text" name="{{ el }}" id="{{ el }}"><br>
+            {% elif el|get_type == 'dict' %}
+            {% for q, f in el.items %}
+            <label for="select_{{ q }}">{{ q }}</label>
+            <select name="{{ q }}" id="select_{{ q }}">
+                <option value="True">True</option>
+                <option selected value="False">False</option>
+            </select>
+
+            <br>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            <br><br>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="col">
+        <button type="submit">Найти и скачать</button>
+    </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+     const btn = document.querySelector(".btn");
+const content = document.querySelector(".content");
+
+btn.addEventListener("click", btnClick);
+
+function btnClick() {
+    console.log(content.classList);
+
+    if (content.classList.contains("hidden")) {
+        btn.textContent = "Скрыть элемент";
+    } else {
+        btn.textContent = "Показать элемент";
+    }
+
+    content.classList.toggle("hidden");
+}
+</script>
+
+</body>
+</html>

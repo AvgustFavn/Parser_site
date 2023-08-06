@@ -1,0 +1,150 @@
+{% load static %}
+{% load filters %}
+<!DOCTYPE html>
+<html  >
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image:src" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:title" content="unknow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/offer-discount-sales-shop-e-icon-227991-128x128.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Без-типовые товары</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/popup-overlay-plugin/style.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/recaptcha.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
+  
+</head>
+<body>
+  
+  {% include 'menu.html' %}
+
+<section class="form cid-tE8fJ6CV6n" id="formbuilder-p">
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+<!--Formbuilder Form-->
+<form method="POST" class="mbr-form form-with-styler" data-verified="">
+    {% csrf_token %}
+<div class="dragArea row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<h4 class="mbr-fonts-style display-5">
+</h4>
+</div>
+<div class="col-lg-10 col-md-12 col-sm-12 form-group" data-for="name">
+<input type="text" name="name" placeholder="Найти по названию" data-form-field="name" class="form-control display-7" value="" id="name-formbuilder-p">
+</div>
+<div class="col-auto">
+<button type="submit" class="w-100 w-100 btn btn-primary display-7">Найти</button>
+</div>
+</div>
+</form><!--Formbuilder Form-->
+</div>
+        </div>
+    </div>
+</section>
+
+<section class="form cid-tE84uFKzAx" id="formbuilder-9">
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+<!--Formbuilder Form-->
+
+<form action="/unknows/_1/is_del" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="MhdcZ5LUXInxkJjwvHiyuxVaH1Lfq1HCANeyYZnjmxL7wLC4fQQDMWcMDZYHCW2CrYF5bB0XuHsRP97jloi0aVZJ8GjLERZKc/PysX3RADPvn05bbhPNYQYmv2Zy6QMp">
+{% csrf_token %}
+    <div class="form-row">
+<div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+<div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some problem!</div>
+</div>
+<div class="dragArea row">
+<div class="col"><button type="submit" class="w-100 btn btn-warning display-7">Удалить все неизвестные продукты</button></div>
+</div>
+</form>
+<!--Formbuilder Form-->
+</div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content2 cid-tE84CpYK0v" id="content2-a">
+    
+    
+    <div class="container">
+        <div class="mbr-section-head">
+            
+            <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">Товары с неизвестным типом</h5>
+        </div>
+        <div class="row mt-4">
+            {% for row in rows %}
+            <div class="item features-image сol-12 col-md-6 col-lg-4">
+                <div class="item-wrapper">
+                    <div class="item-img">
+                        {% if row.datas.pic and row.datas.pic != 'Н.Д.' %}
+                        <img src="/images/{{row.datas.pic}}" title="">
+                        {% else %}
+                        <img src="/images/prod.png" title="">
+                        {% endif %}
+                    </div>
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-5">{{row.name}}</h5>
+                        <h6 class="item-subtitle mbr-fonts-style mt-1 display-7"><strong><a href="/unknows/{{ row.id }}/del_yes" class="text-secondary">УДАЛИТЬ?</a></strong></h6>
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">{{ row.datas|default:''|truncatechars:200 }}</p>
+                    </div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="/unknows/{{ row.id }}" class="btn item-btn btn-warning display-7" target="_blank">Изменить тип</a></div>
+                </div>
+            </div>
+            
+            
+            {% endfor %}
+        </div>
+        <br><br>
+
+
+    </div>
+    <section data-bs-version="5.1" class="content12 cid-tGfM1asQ7E" id="content12-1d">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-6">
+                <div class="mbr-section-btn align-center">
+                    {% if page_prev %}
+                    <a class="btn btn-warning display-4" href="/unknows/_{{page_prev}}">Прошлая страница</a>
+                    {% endif %}
+                    {% if page_next %}
+                    <a class="btn btn-warning display-4" href="/unknows/_{{page_next}}">Следующая страница</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+</section><section><a href="https://mobiri.se"></a><a href="https://mobiri.se"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid.min.js"></script>  
+  
+  
+</body>
+</html>

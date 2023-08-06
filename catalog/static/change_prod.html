@@ -1,0 +1,174 @@
+{% load static %}
+{% load filters %}
+<!DOCTYPE html>
+<html  >
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image:src" content="">
+  <meta property="og:image" content="">
+  <meta name="twitter:title" content="Page 11">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/offer-discount-sales-shop-e-icon-227991-128x128.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Изменение товара</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/popup-overlay-plugin/style.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/recaptcha.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
+  
+</head>
+<body>
+  
+{% include 'menu.html' %}
+
+<section data-bs-version="5.1" class="image2 cid-tEQ9WsR6Hv" id="image2-10">
+    
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg">
+                <div class="text-wrapper">
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-2">{{obj.name}}</h3>
+                    <p class="mbr-text mbr-fonts-style display-7">{{obj.descr}}</p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="image-wrapper">
+                    {% if obj.pic and obj.pic != 'Н.Д.'%}
+                    <img src="/images/{{obj.pic}}" alt="">
+                    {% else %}
+                                    <img src="/images/prod.png">
+                                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="form cid-tEQarUWvyQ" id="formbuilder-11">
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+<!--Formbuilder Form-->
+<form action="/prods/{{ idd }}/upd" method="POST" class="mbr-form form-with-styler" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="dragArea row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<h4 class="mbr-fonts-style display-2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Изменить товар<br><br></h4>
+</div>
+<div class="col-lg-4 col-md-12 col-sm-12 form-group" data-for="text2">
+<label for="text2-formbuilder-11" class="form-control-label mbr-fonts-style display-7">ID товара в БД(лучше не трогать)</label>
+<input type="text" name="id" placeholder="id товара в БД" data-form-field="text2" required="required" class="form-control display-7" value="{{obj.id}}" id="text2-formbuilder-11">
+</div>
+<div data-for="text1" class="col-lg-4 col-md-12 col-sm-12 form-group">
+<label for="text1-formbuilder-11" class="form-control-label mbr-fonts-style display-7">Картинка фотографии</label>
+<input type="file" name="pic" data-form-field="text1" class="form-control display-7" id="text1-formbuilder-11">
+</div>
+<div data-for="name" class="col-lg-12 col-md-12 col-sm-12 form-group">
+<label for="name-formbuilder-11" class="form-control-label mbr-fonts-style display-7">Название товара</label>
+<input type="text" name="name" placeholder="Название товара" data-form-field="name" class="form-control display-7" required="required" value="{{obj.name}}" id="name-formbuilder-11">
+</div>
+<div data-for="message" class="col-lg-12 col-md-12 col-sm-12 form-group">
+<label for="message-formbuilder-11" class="form-control-label mbr-fonts-style display-7">Описание</label>
+<textarea name="full_desc" placeholder="описание" data-form-field="message" class="form-control display-7" id="message-formbuilder-11">{{obj.descr}}</textarea>
+</div>
+<div data-for="text" class="col-lg-12 col-md-12 col-sm-12 form-group">
+<label for="text-formbuilder-11" class="form-control-label mbr-fonts-style display-7">Цена розница</label>
+<input type="text" name="price" placeholder="Цена" data-form-field="text" class="form-control display-7" value="{{obj.price}}" id="text-formbuilder-11">
+</div>
+    <div data-for="text" class="col-lg-12 col-md-12 col-sm-12 form-group">
+<label for="text-formbuilder-11" class="form-control-label mbr-fonts-style display-7">Цена оптовая</label>
+<input type="text" name="price_opt" placeholder="Цена" data-form-field="text" class="form-control display-7" value="{{obj.price_opt}}" id="text-formbuilder-11">
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="select">
+<label for="select-formbuilder-11" class="form-control-label mbr-fonts-style display-7">Тип товара</label>
+    <p>Сейчас тип товара {{model}}</p>
+<select name="select" data-form-field="select" class="form-control form-select display-7" id="select-formbuilder-11">
+    {% for t in types %}
+    {% if t == model %}
+<option selected value="{{t}}">{{t}}</option>
+    {% else %}
+    <option value="{{t}}">{{t}}</option>
+    {% endif %}
+    {% endfor %}
+</select>
+</div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+<p class="mbr-fonts-style display-7">Характеристики:</p>
+</div>
+
+    {% for k, v in chars.items %}
+<div class="col-lg-12 col-md-12 col-sm-12">
+<p class="mbr-fonts-style display-7">{{k}}:</p>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="text1">
+<input type="text" name="update_{{k}}" placeholder="Значение" data-form-field="text1" class="form-control display-7" value="{{v}}" id="nameLast-formbuilder-{{k}}">
+</div>
+    {% endfor %}
+
+<!--    {% if columns %}-->
+<!--<select name="select_col" data-form-field="select" class="form-control form-select display-7" id="select-formbuilder-11">-->
+<!--    <option value="N">Не выбирать колонку</option>-->
+<!--    {% for col in columns %}-->
+<!--    <option value="{{col}}">{{col}}</option>-->
+<!--    {% endfor %}-->
+<!--</select>-->
+<!--    <input type="text" name="col_text">-->
+<!--    {% endif%}-->
+<!--<br>-->
+<!--    {% if columns_b %}-->
+
+<!--    <select name="select_col2" data-form-field="select" class="form-control form-select display-7" id="select-formbuilder-11">-->
+<!--    {% for col in columns_b %}-->
+<!--    <option value="{{col}}">{{col}}</option>-->
+<!--    {% endfor %}-->
+
+
+<!--</select>-->
+<!--    {% endif%}-->
+<!--    {% if columns_b %}-->
+<!--<div class="col">-->
+<!--    <select name="select_col_b" data-form-field="select" class="form-control form-select display-7" id="select-formbuilder-11">-->
+<!--        <option selected value="N">Не выбирать</option>-->
+<!--        <option value="True">Да или есть</option>-->
+<!--        <option value="False">Нет или нету</option>-->
+<!--    </select>-->
+<!--</div>-->
+<!--    {% endif%}-->
+
+</div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12">
+<button type="submit" class="w-100 w-100 w-100 btn btn-warning display-7">Обновить</button>
+</div>
+</div>
+</form><!--Formbuilder Form-->
+</div>
+        </div>
+    </div>
+</section><section><a href="https://mobiri.se"></a><a href="https://mobiri.se"></a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid.min.js"></script>  
+  
+  
+</body>
+</html>

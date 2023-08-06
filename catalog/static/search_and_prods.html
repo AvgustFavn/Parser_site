@@ -1,0 +1,318 @@
+{% load static %}
+{% load filters %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image:src" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:title" content="Page 5">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/offer-discount-sales-shop-e-icon-227991-128x128.png"
+          type="image/x-icon">
+    <meta name="description" content="">
+
+
+    <title>Товары</title>
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/popup-overlay-plugin/style.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="stylesheet" href="assets/recaptcha.css">
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
+    </noscript>
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap">
+    </noscript>
+    <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+<style>
+        .hid_block {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var toggleIcon = document.getElementById('toggle-icon');
+        var hidBlock = document.querySelector('.hid_block');
+
+        toggleIcon.addEventListener('click', function() {
+            hidBlock.classList.toggle('active');
+        });
+    });
+</script>
+{% include 'menu.html' %}
+
+<section class="form cid-tE8eZC5Qiz" id="formbuilder-o">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                <!--Formbuilder Form-->
+                <form method="POST" class="mbr-form form-with-styler">
+                    {% csrf_token %}
+                    <div class="dragArea row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h4 class="mbr-fonts-style display-5">Поиск</h4>
+                        </div>
+                        <div class="col-lg-10 col-md-12 col-sm-12 form-group" data-for="name">
+                            <input type="text" name="prod" placeholder="Поиск товара" data-form-field="name"
+                                   class="form-control display-7" value="" id="name-formbuilder-o">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <p class="mbr-fonts-style display-7"><span
+                                    id="toggle-icon"><strong>Больше характеристик</strong> 🔻</span></p>
+                        </div>
+                        <div class="hid_block">
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="radio">
+                                <div class="form-control-label">
+                                    <label for="radio1-formbuilder-o" class="mbr-fonts-style display-7">Наличие</label>
+                                </div>
+                                <div class="form-check ms-2">
+                                    <input type="radio" name="yes" data-form-field="radio1"
+                                           class="form-check-input display-7" value="Есть в наличии"
+                                           id="radio1-formbuilder-o">
+                                    <label class="form-check-label display-7">Есть в наличии</label>
+                                </div>
+                                <div class="form-check ms-2">
+                                    <input type="radio" name="no" data-form-field="radio1"
+                                           class="form-check-input display-7" value="Нет в наличии"
+                                           id="radio2-formbuilder-o">
+                                    <label class="form-check-label display-7">Нет в наличии</label>
+                                </div>
+                                <div class="form-check ms-2">
+                                    <input type="radio" name="4order" data-form-field="radio1"
+                                           class="form-check-input display-7" value="Под заказ"
+                                           id="radio3-formbuilder-o">
+                                    <label class="form-check-label display-7">Под заказ</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="radio">
+                                <div class="form-control-label">
+                                    <label for="radio-formbuilder-o" class="mbr-fonts-style display-7">Категория
+                                        продукта</label>
+                                </div>
+                                {% for k in models %}
+                                <div class="form-check form-check-inline ms-2">
+                                    <input type="radio" name="categ" data-form-field="radio"
+                                           class="form-check-input display-7" value="{{k}}" id="radio4-formbuilder-o">
+                                    <label class="form-check-label display-7">{{k}}</label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <label class="form-control-label mbr-fonts-style display-7">Поиск по
+                                    характеристикам</label>
+                                {% for k, v in caracts.items %}
+                                {% if v == 'not' %}
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="form-control-label mbr-fonts-style display-7">{{ k}}</label>
+                                        <input type="text" name="{{k}}" data-form-field="nameLast" placeholder="{{k}}"
+                                               class="form-control text-multiple" id="nameLast-formbuilder-o">
+                                    </div>
+                                </div>
+                                {% else %}
+                                <label class="form-control-label mbr-fonts-style display-7" for="select_{{ k }}">{{ k}}</label>
+                                <select data-form-field="select" class="form-control form-select display-7" name="{{ k }}" id="select_{{ k }}">
+                                    <option value="True">Положительно(Да, есть и т.д.)</option>
+                                    <option value="False">Отрицательно</option>
+                                    <option selected value="None">Ничего не делать</option>
+                                </select>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <button type="submit" class="w-100 w-100 w-100 btn btn-warning display-7">найти</button>
+                        </div>
+                    </div>
+                </form><!--Formbuilder Form-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="content12 cid-tIwgIGbahi" id="content12-1t">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="mbr-section-btn align-center">
+                    {% if page_prev %}
+                        <a class="btn btn-warning display-4" href="/prods/_{{page_prev}}">Предыдущая</a>
+                    {% endif %}
+
+                    {% if total_pages > 1 %}
+                        <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4">Страницы:</h5>
+                        {% if page_num > 6 %}
+                                {% if page_num == 1 %}
+                                    <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_1/"> <strong> 1...</strong></a></h5>
+                                {% else %}
+                                    <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_1/"> 1...</a></h5>
+                                {% endif %}
+
+                        {% endif %}
+                    {% for i in pages_range %}
+                        {% if page_num == i %}
+                            <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_{{ i }}/"> <strong>{{i}}...</strong></a></h5>
+                        {% else %}
+                            <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_{{ i }}/"> {{i}}...</a></h5>
+                        {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% if page_num < last_minus_six %}
+                        {% if last_page %}
+                            {% if page_num == last_page %}
+                                <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_{{ last_page }}/"> <strong>{{last_page}}...</strong></a></h5>
+                            {% else %}
+                                <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_{{ last_page }}/"> {{last_page}}...</a></h5>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                    {% if page_next %}
+                        <a class="btn btn-warning display-4" href="/prods/_{{page_next}}">Следующая</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="pricing1 cid-tE89EPf4WU" xmlns="http://www.w3.org/1999/html" id="pricing01-f">
+
+
+    <div class="container">
+        {% for row in rows %}
+        <div class="card">
+            <div class="card-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-3">
+                        <div class="image-wrapper">
+                            {% if row.pic and row.pic != 'Н.Д.' %}
+                            <img src="/images/{{row.pic}}" alt="">
+                            {% else %}
+                            <img src="/images/prod.png" alt="">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-12 col-md">
+                        <div class="card-box">
+                            <div class="row">
+                                <div class="col-md">
+                                    <h6 class="card-title mbr-fonts-style display-5">{{row.name}}</h6>
+                                    <p class="mbr-text mbr-fonts-style display-7">
+                                        {{row.descr|default:''|truncatechars:200 }}</p>
+                                    <p class="mbr-text mbr-fonts-style display-7">
+                                        Откуда товар: {{row.url }}</p>
+                                    <p class="mbr-text mbr-fonts-style display-7">
+                                        Наличие: {{row.available }}</p>
+                                </div>
+                                {% if admin or super %}
+                                <div class="col-md-auto">
+                                    <p class="price mbr-fonts-style display-2">Цена розница: {{row.price}} Руб.</p>
+                                    <p class="price mbr-fonts-style display-2">Цена оптовая: {{row.price_opt}} Руб.</p>
+                                    <div class="mbr-section-btn"><a href="/prods/{{ row.global_id }}"
+                                                                    class="btn btn-warning display-4">Посмотреть
+                                        товар</a></div>
+                                </div>
+                                {% else %}
+                                <div class="col-md-auto">
+                                    <p class="price mbr-fonts-style display-2">Цена: {{row.price}} Руб.</p>
+                                    <div class="mbr-section-btn"><a href="/prods/{{ row.global_id }}"
+                                                                    class="btn btn-warning display-4">Посмотреть
+                                        товар</a></div>
+                                </div>
+                                {% endif %}
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+</section>
+<section data-bs-version="5.1" class="content12 cid-tIwgIGbahi" id="content12-1t">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="mbr-section-btn align-center">
+                    {% if page_prev %}
+                        <a class="btn btn-warning display-4" href="/prods/_{{page_prev}}">Предыдущая</a>
+                    {% endif %}
+
+                    {% if total_pages > 1 %}
+                        <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4">Страницы:</h5>
+                        {% if page_num > 6 %}
+                                {% if page_num == 1 %}
+                                    <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_1/"> <strong> 1...</strong></a></h5>
+                                {% else %}
+                                    <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_1/"> 1...</a></h5>
+                                {% endif %}
+
+                        {% endif %}
+                    {% for i in pages_range %}
+                        {% if page_num == i %}
+                            <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_{{ i }}/"> <strong>{{i}}...</strong></a></h5>
+                        {% else %}
+                            <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_{{ i }}/"> {{i}}...</a></h5>
+                        {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% if page_num < last_minus_six %}
+                        {% if last_page %}
+                            {% if page_num == last_page %}
+                                <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_{{ last_page }}/"> <strong>{{last_page}}...</strong></a></h5>
+                            {% else %}
+                                <h5 class="mbr-section-subtitle align-center mbr-fonts-style mb-4"><a href="/prods/_{{ last_page }}/"> {{last_page}}...</a></h5>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                    {% if page_next %}
+                        <a class="btn btn-warning display-4" href="/prods/_{{page_next}}">Следующая</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section><a href="https://mobiri.se"></a><a href="https://mobiri.se"></a></section>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/smoothscroll/smooth-scroll.js"></script>
+<script src="assets/ytplayer/index.js"></script>
+<script src="assets/dropdown/js/navbar-dropdown.js"></script>
+<script src="assets/theme/js/script.js"></script>
+<script src="assets/formoid.min.js"></script>
+
+
+</body>
+</html>
